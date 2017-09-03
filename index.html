@@ -23,6 +23,9 @@
             .reveal h1 {
                 text-transform: none;
             }
+            .reveal h2 {
+                text-transform: none;
+            }
             .reveal h3 {
                 text-transform: none;
             }
@@ -151,10 +154,6 @@
             ### Les trois états de vos fichiers
             ![maxpic](images/areas.png)
             </section>
-
-        <section data-markdown id="foncetcombase">
-        ## Fonctionnalités et commandes de base
-        </section>
 </section>
 
 <!-- ########################################################################################## -->
@@ -163,6 +162,50 @@
     <section data-markdown id="avcom">
     # Avant de commencer
     </section>
+
+            <section data-markdown>
+            ### Paramétrage à la première utilisation
+            - Fichier /etc/gitconfig : Tous les utilisateurs. *git config --system*
+            - Fichier ~/.gitconfig : Spécifique à votre utilisateur. *git config --global*
+            - Fichier config dans le répertoire Git (c’est-à-dire .git/config) : spécifique au seul dépôt en cours.
+            </section>
+
+            <section data-markdown>
+            ### Votre identité
+            - $ git config --global user.name "John Doe"
+            - $ git config --global user.email johndoe@example.com
+            </section>
+
+            <section data-markdown>
+            ### Votre éditeur de texte
+            - $ git config --global core.editor vim
+            </section>
+
+            <section data-markdown>
+            ### Vérifier vos paramètres
+            ```
+            $ git config --list
+            user.name=John Doe
+            user.email=johndoe@example.com
+            color.status=auto
+            color.branch=auto
+            color.interactive=auto
+            color.diff=auto
+            …
+            ```
+            ```
+            $ git config user.name
+            John Doe
+            ```
+            </section>
+
+            <section data-markdown>
+            ### Obtenir de l'aide
+            Si vous avez besoin d’aide pour utiliser Git, il y a trois moyens d’obtenir les pages de manuel pour toutes les commandes de Git :
+            - $ git help *commande*
+            - $ git *commande* --help
+            - $ man git-*commande*
+            </section>
 </section>
 
 <!-- ########################################################################################## -->
@@ -171,6 +214,71 @@
     <section data-markdown id="cmdbase">
     # Les commandes de base
     </section>
+
+        <section data-markdown>
+        ## Démarrer un dépôt Git
+        </section>
+            <section data-markdown>
+            ### Démarrage d'un dépôt Git local
+            ```
+            $ git init
+            ```
+            Cela crée un nouveau sous-répertoire nommé .git qui contient tous les fichiers nécessaires au dépôt.
+            ```
+            $ git add *.c
+            $ git add LICENSE
+            $ git commit -m 'initial project version'
+            ```
+            </section>
+            <section data-markdown>
+            ### Cloner un dépôt existant
+            ```
+            $ git clone https://github.com/libgit2/libgit2
+            ```
+            Ceci crée un répertoire nommé “libgit2”, initialise un répertoire .git à l’intérieur, récupère toutes les données de ce dépôt, et extrait une copie de travail de la dernière version.
+            </section>
+    
+        <section data-markdown>
+        ## Enregistrer des modifications dans le dépôt
+        </section>
+    
+            <section data-markdown>
+            ### Cycle de vie de vos fichiers
+            ![maxpic](images/lifecycle.png)
+            </section>
+
+            <section data-markdown>
+            ### Commandes de base
+            - git status
+            - git add
+            - git diff
+            - git commit
+            - git rm
+            - git mv
+            ### Ignorer des fichiers
+            - .gitignore
+            </section>
+    
+        <section data-markdown>
+        ## Visualiser l’historique des validations
+        - git log
+        </section>
+    
+        <section data-markdown>
+        ## Annuler des actions
+        </section>
+    
+        <section data-markdown>
+        ## Travailler avec des dépôts distants
+        </section>
+    
+        <section data-markdown>
+        ## Étiquetage
+        </section>
+    
+        <section data-markdown>
+        ## Les alias Git
+        </section>
 </section>
 
 <!-- ########################################################################################## -->
