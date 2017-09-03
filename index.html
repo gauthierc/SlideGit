@@ -23,9 +23,6 @@
             .reveal h1 {
                 text-transform: none;
             }
-            .reveal h2 {
-                text-transform: none;
-            }
             .reveal h3 {
                 text-transform: none;
             }
@@ -262,6 +259,12 @@
         <section data-markdown>
         ## Visualiser l’historique des validations
         - git log
+        - git log -p -2
+        - git log --stat
+        - git log --pretty=oneline
+        - git log --pretty=format:"%h - %an, %ar : %s"
+        - git log --pretty=format:"%h %s" --graph
+        - git log --since=2.weeks
         </section>
     
         <section data-markdown>
