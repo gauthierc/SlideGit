@@ -333,8 +333,8 @@
             ### Afficher les dépôts distants
             ```
             $ git remote -v
-            originhttps://github.com/schacon/ticgit (fetch)
-            originhttps://github.com/schacon/ticgit (push)
+            origin https://github.com/schacon/ticgit (fetch)
+            origin https://github.com/schacon/ticgit (push)
             ```
             </section>
 
@@ -367,17 +367,17 @@
             ### Inspecter un dépôt distant
             ```
             $ git remote show origin
-			* distante origin
-			  URL de rapatriement : https://github.com/schacon/ticgit
-			  URL push : https://github.com/schacon/ticgit
-			  Branche HEAD : master
-			  Branches distantes :
-			    master suivi
-			    ticgit suivi
-			  Branche locale configurée pour 'git pull' :
-			    master fusionne avec la distante master
-			  Référence locale configurée pour 'git push' :
-			    master pousse vers master (à jour)
+              * distante origin
+              URL de rapatriement : https://github.com/schacon/ticgit
+              URL push : https://github.com/schacon/ticgit
+              Branche HEAD : master
+              Branches distantes :
+                master suivi
+                ticgit suivi
+              Branche locale configurée pour 'git pull' :
+                master fusionne avec la distante master
+              Référence locale configurée pour 'git push' :
+                master pousse vers master (à jour)
             ```
             </section>
     
@@ -395,6 +395,60 @@
         ## Étiquetage
         </section>
     
+            <section data-markdown>
+            ### Lister vos étiquettes
+            Lister les étiquettes existantes dans Git est très simple. Tapez juste *git tag* :
+            ```
+            $ git tag
+            v0.1
+            v1.3
+            ```
+            Recherche avec un motif
+            ```
+            $ git tag -l 'v1.3.*'
+            v1.3.1
+            v1.3.2
+            ```
+            </section>
+        
+            <section data-markdown>
+            ### Créer des étiquettes annotées
+            ```
+            $ git tag -a v1.4 -m 'ma version 1.4'
+            $ git tag
+            v1.3
+            v1.4
+            ```
+            Vous pouvez visualiser les données de l’étiquette à côté du commit qui a été marqué en utilisant la commande *git show*
+            </section>
+        
+            <section data-markdown>
+            ### Les étiquettes légères
+            Pour créer une étiquette légère, il suffit de n’utiliser aucune des options -a, -s ou -m :
+            ```
+            $ git tag v1.4-lg
+            $ git tag
+            v0.1
+            v1.4
+            v1.4-lg
+            v1.5
+            ```
+            Regarder la différence de sortie avec *git show*.
+            </section>
+        
+            <section data-markdown>
+            ### Étiqueter après coup
+
+            </section>
+        
+            <section data-markdown>
+            ### Étiquetage
+            </section>
+        
+            <section data-markdown>
+            ### Étiquetage
+            </section>
+   
         <section data-markdown>
         ## Les alias Git
         </section>
