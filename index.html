@@ -438,20 +438,35 @@
         
             <section data-markdown>
             ### Étiqueter après coup
-
+            Pour étiqueter un ancien commit, vous spécifiez la somme de contrôle du commit (ou une partie) en fin de commande :
+            ```
+            $ git tag -a v1.2 9fceb02
+            ```
             </section>
         
             <section data-markdown>
-            ### Étiquetage
+            ### Partager les étiquettes
+            Par défaut, la commande git push ne transfère pas les étiquettes vers les serveurs distants. Il faut explicitement pousser les étiquettes après les avoir créées localement.
+            ```
+            $ git push origin v1.5
+            ```
+            La commande suivante transférera toutes les nouvelles étiquettes vers le serveur distant.
+            ```
+            $ git push origin --tags
+            ```
             </section>
         
-            <section data-markdown>
-            ### Étiquetage
-            </section>
-   
         <section data-markdown>
         ## Les alias Git
+        Git ne complète pas votre commande si vous ne la tapez que partiellement. Si vous ne voulez pas avoir à taper l’intégralité du texte de chaque commande, vous pouvez facilement définir un alias pour chaque commande en utilisant git config. 
+        ```
+        $ git config --global alias.co checkout
+        $ git config --global alias.br branch
+        $ git config --global alias.ci commit
+        $ git config --global alias.st status
+        ```
         </section>
+   
 </section>
 
 <!-- ########################################################################################## -->
