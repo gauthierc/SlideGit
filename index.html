@@ -203,6 +203,12 @@
             - $ git *commande* --help
             - $ man git-*commande*
             </section>
+            <section data-markdown>
+            ### Exercice
+            - Effectuez le paramêtrage de votre environnement Git avec *git config*
+                - nom, email, editeur
+            - Aidez vous de la commande git help
+            </section>
 </section>
 
 <!-- ########################################################################################## -->
@@ -255,7 +261,18 @@
             ### Ignorer des fichiers
             - .gitignore
             </section>
-    
+            <section data-markdown>
+            ### Exercice
+            - Créez un nouveau dossier
+            - Initialisez un nouveau dépôt Git dans ce dossier
+            - Manipulez et faites des commits pour valider ces modifications avec les commandes suivantes:
+                - git status
+                - git add
+                - git diff
+                - git commit
+                - git rm
+                - git mv
+            </section>
         <section data-markdown>
         ## Visualiser l’historique des validations
         - git log
@@ -531,11 +548,40 @@
             ![maxpic](images/advance-master.png)
             </section>
             <section data-markdown>
+            ### Suppression d'une branche
+            ```
+            $ git branch -d testing
+            ```
+            </section>
+            <section data-markdown>
             ### À retenir
             - 3 commandes: commit, branch, checkout
             - Une branche Git n’est en fait qu’un simple fichier contenant les 40 caractères de l’empreinte SHA-1 du commit sur lequel elle pointe.
             - *git log --oneline --decorate --graph --all* pour visualiser les branches.
             </section>
+            <section data-markdown>
+            ### Exercice
+            - Créez 3 fichiers textes (fich1, fich2, fich3)
+            - Créez une nouvelle branche appelée *dev*
+            - Positionnez-vous sur la branche *dev*
+            - Modifiez fich1 et faites un commit
+            </section>
+
+
+        <section data-markdown id="branchesetfusion">
+        ## Branches et fusion
+        - 
+        </section>
+            <section data-markdown>
+            ### Exercice
+            - Créez une nouvelle branche appelée *bugFix*
+            - Positionnez-vous sur la branche *bugFix*
+            - Modifiez un fichier et faites un commit
+            - Retournez sur la branche master (commande *git checkout*)
+            - Modifiez un fichier et faites un nouveau commit
+            - Fusionnez la branche *bugFix* dans master avec *git merge*
+            </section>
+
 </section>
 
 <!-- ########################################################################################## -->
