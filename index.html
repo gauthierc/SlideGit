@@ -472,9 +472,70 @@
 <!-- ########################################################################################## -->
 <!-- ########################################################################################## -->
 <section>
-    <section data-markdown id="plusloin">
-    # Aller plus loin
+    <section data-markdown id="branches">
+    # Les Branches
     </section>
+
+        <section data-markdown id="benb">
+        ## Les branches en bref
+        - Une branche dans Git est simplement un pointeur léger et déplaçable vers un commits
+        - *Master* est la branche par défaut créé par la commande *git init*
+        </section>
+
+            <section data-markdown>
+            ### Une branche et l’historique de ses commits
+            ![maxpic](images/branch-and-history.png)
+            </section>
+
+            <section data-markdown>
+            ### Créer une nouvelle branche
+            ```
+            git branch testing
+            ```
+            Cela crée un nouveau pointeur vers le commit courant.
+            ![maxpic](images/two-branches.png)
+            </section>
+            <section data-markdown>
+            ### Vous êtes toujours sur la branche *master*.
+            ![maxpic](images/head-to-master.png)
+            </section>
+            <section data-markdown>
+            ### Changer de branche
+            ```
+            $ git checkout testing
+            ```
+            ![maxpic](images/head-to-testing.png)
+            </section>
+            <section data-markdown>
+            ### Qu’est-ce que cela signifie ? 
+            Et bien, faisons une autre validation :
+            ```
+            $ vim README.md
+            $ git commit -a -m 'un changement dans le fichier README'
+            ```
+            ![maxpic](images/advance-testing.png)
+            </section>
+            <section data-markdown>
+            ### Retournons sur la branche master
+            ```
+            $ git checkout master
+            ```
+            ![maxpic](images/checkout-master.png)
+            </section>
+            <section data-markdown>
+            ### Nouvelle modification pour diverger
+            ```
+            $ vim README.md
+            $ git commit -a -m 'un changement dans le fichier README'
+            ```
+            ![maxpic](images/advance-master.png)
+            </section>
+            <section data-markdown>
+            ### À retenir
+            - 3 commandes: commit, branch, checkout
+            - Une branche Git n’est en fait qu’un simple fichier contenant les 40 caractères de l’empreinte SHA-1 du commit sur lequel elle pointe.
+            - *git log --oneline --decorate --graph --all* pour visualiser les branches.
+            </section>
 </section>
 
 <!-- ########################################################################################## -->
