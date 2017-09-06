@@ -558,6 +558,7 @@
             - 3 commandes: commit, branch, checkout
             - Une branche Git n’est en fait qu’un simple fichier contenant les 40 caractères de l’empreinte SHA-1 du commit sur lequel elle pointe.
             - *git log --oneline --decorate --graph --all* pour visualiser les branches.
+            - Quand vous changez de branche, Git réinitialise votre répertoire de travail pour qu’il soit le même que la dernière fois que vous avez effectué un commit sur cette branche. 
             </section>
             <section data-markdown>
             ### Exercice
@@ -566,12 +567,30 @@
             - Positionnez-vous sur la branche *dev*
             - Modifiez fich1 et faites un commit
             </section>
+</section>
 
-
-        <section data-markdown id="branchesetfusion">
-        ## Branches et fusion
-        - 
-        </section>
+<!-- ########################################################################################## -->
+<!-- ########################################################################################## -->
+<section>
+    <section data-markdown id="bfc">
+    # Branche, fusion et conflit
+    </section>
+            <section data-markdown>
+            ### Merge Fast-forward
+            ![maxpic](images/basic-branching-4.png)
+            ```
+            $ git checkout master
+            $ git merge correctif
+            Updating f42c576..3a0874c
+            Fast-forward
+             index.html | 2 ++
+             1 file changed, 2 insertions(+)
+            ```
+            </section>
+             <section data-markdown>
+            ### Merge Fast-forward
+            ![maxpic](images/basic-branching-5.png)
+            </section>
             <section data-markdown>
             ### Exercice
             - Créez une nouvelle branche appelée *bugFix*
@@ -582,14 +601,6 @@
             - Fusionnez la branche *bugFix* dans master avec *git merge*
             </section>
 
-</section>
-
-<!-- ########################################################################################## -->
-<!-- ########################################################################################## -->
-<section>
-    <section data-markdown id="bfc">
-    # Branche, fusion et conflit
-    </section>
 </section>
 
 <!-- ########################################################################################## -->
