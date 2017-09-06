@@ -600,7 +600,50 @@
             - Modifiez un fichier et faites un nouveau commit
             - Fusionnez la branche *bugFix* dans master avec *git merge*
             </section>
-
+             <section data-markdown>
+            ### Git Rebase
+            La seconde façon de combiner les contenus de deux branches est rebase. Rebase prend un ensemble de commits, les "recopie", et les ajoute en bout de chaîne à un autre endroit.
+            </section>
+             <section data-markdown>
+            ### Avant le Git Rebase
+            ![maxpic](images/basic-rebase-1.png)
+            </section>
+             <section data-markdown>
+            ### Après un Git merge
+            Rappel, si l'on applique le *git merge* nous obtenons ceci:
+            ![maxpic](images/basic-rebase-2.png)
+            </section>
+             <section data-markdown>
+            ### Après le Git Rebase
+            ![maxpic](images/basic-rebase-3.png)
+            ```
+            $ git checkout experiment
+            $ git rebase master
+            First, rewinding head to replay your work on top of it...
+            Applying: added staged command
+            ```
+            </section>
+             <section data-markdown>
+            ### Résultat final
+            À ce moment, vous pouvez retourner sur la branche master et réaliser une fusion en avance rapide (fast-forward merge) pour obtenir ceci:
+            ![maxpic](images/basic-rebase-4.png)
+            </section>
+            <section data-markdown>
+            ### À retenir
+            - Toutes les modifications apparaissent en série même si elles ont eu lieu en parallèle.
+            - Le commit résultant d'un merge ou d'un rebase est strictement identique.
+            - Utile pour proposer un patch pour un projet que vous ne maintenez pas.
+            - **Ne rebasez jamais des commits qui ont déjà été poussés sur un dépôt public.**
+            </section>
+            <section data-markdown>
+            ### Exercice
+            - Créez une nouvelle branche appelée *bugFix*
+            - Positionnez-vous sur la branche *bugFix*
+            - Modifiez un fichier et faites un commit
+            - Retournez sur la branche master (commande *git checkout*)
+            - Modifiez un fichier et faites un nouveau commit
+            - Positionnez-vous sur la branche *bugFix* et faites un *git rebase master*
+            </section>
 </section>
 
 <!-- ########################################################################################## -->
