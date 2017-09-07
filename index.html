@@ -573,8 +573,11 @@
 <!-- ########################################################################################## -->
 <section>
     <section data-markdown id="bfc">
-    # Branche, fusion et conflit
+    # Fusion et conflit
     </section>
+        <section data-markdown id="fusion">
+        ## Fusion
+        </section>
             <section data-markdown>
             ### Merge Fast-forward
             ![maxpic](images/basic-branching-4.png)
@@ -587,7 +590,7 @@
              1 file changed, 2 insertions(+)
             ```
             </section>
-             <section data-markdown>
+            <section data-markdown>
             ### Merge Fast-forward
             ![maxpic](images/basic-branching-5.png)
             </section>
@@ -600,20 +603,20 @@
             - Modifiez un fichier et faites un nouveau commit
             - Fusionnez la branche *bugFix* dans master avec *git merge*
             </section>
-             <section data-markdown>
+            <section data-markdown>
             ### Git Rebase
             La seconde façon de combiner les contenus de deux branches est rebase. Rebase prend un ensemble de commits, les "recopie", et les ajoute en bout de chaîne à un autre endroit.
             </section>
-             <section data-markdown>
+            <section data-markdown>
             ### Avant le Git Rebase
             ![maxpic](images/basic-rebase-1.png)
             </section>
-             <section data-markdown>
+            <section data-markdown>
             ### Après un Git merge
             Rappel, si l'on applique le *git merge* nous obtenons ceci:
             ![maxpic](images/basic-rebase-2.png)
             </section>
-             <section data-markdown>
+            <section data-markdown>
             ### Après le Git Rebase
             ![maxpic](images/basic-rebase-3.png)
             ```
@@ -623,7 +626,7 @@
             Applying: added staged command
             ```
             </section>
-             <section data-markdown>
+            <section data-markdown>
             ### Résultat final
             À ce moment, vous pouvez retourner sur la branche master et réaliser une fusion en avance rapide (fast-forward merge) pour obtenir ceci:
             ![maxpic](images/basic-rebase-4.png)
@@ -643,6 +646,90 @@
             - Retournez sur la branche master (commande *git checkout*)
             - Modifiez un fichier et faites un nouveau commit
             - Positionnez-vous sur la branche *bugFix* et faites un *git rebase master*
+            </section>
+        <section data-markdown id="conflit">
+        ## Conflits de fusion
+         Si vous avez modifié différemment la même partie du même fichier dans les deux branches que vous souhaitez fusionner, Git ne sera pas capable de réaliser proprement la fusion.
+        </section>
+            <section data-markdown>
+            ### Merge avec conflit
+            Si votre résolution du problème #53 a modifié la même section de fichier que le correctif, vous obtiendrez un conflit qui ressemblera à ceci :
+            ```
+            $ git merge prob53
+            Fusion automatique de index.html
+            CONFLIT (contenu) : Conflit de fusion dans index.html
+            La fusion automatique a échoué ; réglez les conflits et validez le résultat.
+            ```
+            Git n’a pas automatiquement créé le commit de fusion. Il a arrêté le processus le temps que vous résolviez le conflit.
+            </section>
+            <section data-markdown>
+            ### Verification de la liste des fichiers impactés
+            ```
+            $ git status
+            Sur la branche master
+            Vous avez des chemins non fusionnés.
+              (réglez les conflits puis lancez "git commit")
+              (use "git merge --abort" to abort the merge)
+            
+            Chemins non fusionnés :
+              (utilisez "git add &lt;fichier&gt;..." pour marquer comme résolu)
+            
+                    modifié des deux côtés :  index.html
+            
+            aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+            ```
+            </section>
+            <section data-markdown>
+            ### Correction du conflit à la main
+            ```
+            <<<<<<< HEAD:index.html
+            &lt;div id="footer"&gt;contact : email.support@github.com&lt;/div&gt;
+            =======
+            &lt;div id="footer"&gt;
+             please contact us at support@github.com
+            &lt;/div&gt;
+            >>>>>>> prob53:index.html
+            ```
+            C'est au développeur de prendre la décision et d'enregistrer le fichier. Ensuite *git add* et d'un *git commit* pour terminer l'opération.
+            </section>
+            <section data-markdown>
+            ### Abandonner une fusion
+            ```
+            $ git merge --abort
+            ```
+            </section>
+            <section data-markdown>
+            ### Ignorer les caractères invisibles lors de la fusion
+            ```
+            $ git merge --Xignore-all-space mabranche
+            ```
+            ou
+            ```
+            $ git merge --Xignore-space-change mabranche
+            ```
+            La première option ignore complètement tous les espaces tandis que la seconde traite les séquences d’un ou plusieurs espaces comme équivalentes.
+            </section>
+            <section data-markdown>
+            ### Défaire les fusions
+            Avec Git il n’est pas interdit de faire des erreurs, parce qu’il reste toujours possible de les corriger.
+            ```
+            $ git reset --hard HEAD~
+            ```
+            **reset --hard** réalise généralement trois étapes :
+            1. Déplace la branche pointée par HEAD,
+            2. Faire ressembler l’index à HEAD,
+            3. Faire ressembler le répertoire de travail à l’index.
+            **À éviter après un push ou un autre commit.**
+            </section>
+            <section data-markdown>
+            ### Inverser le commit
+            Si les déplacements des pointeurs de branche ne sont pas envisageables, Git vous donne encore l’option de créer un nouveau commit qui défait toutes les modifications d’un autre déjà existant.
+            ```
+            $ git revert -m 1 HEAD
+            ```
+            L’option -m 1 indique quel parent est le principal et devrait être conservé.
+
+            ** Attention, une nouvelle fusion ne donnera rien, car la branche a déjà été fusionnée.**
             </section>
 </section>
 
