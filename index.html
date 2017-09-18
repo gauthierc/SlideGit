@@ -747,6 +747,94 @@
     <section data-markdown id="bgc">
     # Bien gérer ses commits
     </section>
+        <section data-markdown>
+        ## Donner du sens au message de commit
+        * Pour une meilleur lisibilité
+        * Pour les nouveaux et les autres en général
+        * Pour la revue de code
+        </section>
+            <section data-markdown>
+            ### Conventions de commit
+            * Exemple pour le projet angularjs
+
+              &lt; **type** &gt; (&lt; **_scope_** &gt;): &lt; **Subject** &gt;
+              
+              &lt; *BLANK LINE* &gt;
+              
+              &lt; **_body_** &gt;
+              
+              &lt; *BLANK LINE* &gt;
+              
+              &lt; **_footer_** &gt;
+            </section>
+            <section data-markdown>
+            &lt;**type**&gt; ( &lt; *scope* &gt; ): &lt; *Subject* &gt;
+            * feat (feature)
+            * fix (correction de bugs)
+            * docs (documentation)
+            * style (formatage, ponctuations manquantes, ...)
+            * refactor
+            * test (lors de l'ajout de tests manquants)
+            * chore (maintenir)
+            </section>
+            <section data-markdown>
+            &lt;*type*&gt; ( &lt; **scope** &gt; ): &lt; *Subject* &gt;
+
+            Scope ou portée en français, indique la partie de code impactée par le changement.
+
+            Il est important, avant de commencer le projet, de convenir d'une convention de nommage sur les différentes parties du programme.
+
+            *Optionnel, une modification peut impacter la totalité du code.*
+            </section>
+            <section data-markdown>
+            &lt;*type*&gt; ( &lt; *scope* &gt; ): &lt; **Subject** &gt;
+
+            * Décrire ce que l'on apporte à l'application et non pas au code.
+            * pas de majuscule sur la première lettre
+            * pas de point (.) en fin de ligne
+            </section>
+            <section data-markdown>
+            &lt; **_body_** &gt;
+
+            * Complément du sujet
+            * Détail de l'implémentation du changement
+
+            *Optionnel*
+            </section>
+            <section data-markdown>
+            &lt; **_footer_** &gt;
+            * Référence sur le commit
+            * Indication du numéro de bugfix
+            * Indication des ruptures dans le code ( expliquer la migration, l'impact )
+
+            *Optionnel*
+            </section>
+            <section data-markdown>
+            #### Exemple
+            ```
+            fix($compile): couple of unit tests for IE9
+            
+            Older IEs serialize html uppercased, but IE9 does not...
+            Would be better to expect case insensitive, unfortunately jasmine does
+            not allow to user regexps for throw expectations.
+            
+            Closes #392
+            Breaks foo.bar api, foo.baz should be used instead
+            ```
+            </section>
+        <section data-markdown>
+        ## Réécrire l'histoire
+        </section>
+            <section data-markdown>
+            ### Modifier la dernière validation
+            * git commit --amend
+            On annule le dernier commit et on le recommence. À ne pas faire si le commit a déjà été publié.
+            </section>
+            <section data-markdown>
+            ### Exercice
+            - Effectuez 4 modifications dans vos fichiers avec 4 commits différents.
+            - Utilisez la commande *git rebase* pour n'avoir qu'un seul commit pour ces 4 modifications.
+            </section>
 </section>
 
 <!-- ########################################################################################## -->
