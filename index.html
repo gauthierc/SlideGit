@@ -744,18 +744,37 @@
         </section>
             <section data-markdown>
             ### Remiser votre travail
+            ```git stash``` *permet de remiser son travail.*
+
+            ```git stash list``` *permet de lister les travaux remisés.*
+
             </section>
             <section data-markdown>
             ### Remisage créatif
+            ``` git stash --keep-index```
+
+            L'option ```--keep-index``` indique à Git de ne pas remiser ce qui aurait été déjà indexé au moyen de la commande ```git add```.
             </section>
             <section data-markdown>
             ### Défaire l'effet d'une remise
+            Il n'existe pas de commande stash unapply.
+
+            ```$ git stash show -p stash@{0} | git apply -R```
+
+            Si la remise n’est pas indiquée, Git utilise la plus récente.
             </section>
             <section data-markdown>
             ### Créer une branche depuis une remise
+            ```git stash branch teststash```
+
+            C’est un bon raccourci pour récupérer facilement du travail remisé et pouvoir travailler dessus dans une nouvelle branche.
             </section>
             <section data-markdown>
             ### Nettoyer son espace de travail
+
+            Enfin, vous pouvez ne pas souhaiter remiser certain fichiers de votre répertoire de travail, mais simplement vous en débarrasser. La commande ```git clean``` s’en chargera pour vous.
+
+            Faites néanmoins très attention avec cette commande car elle supprime des fichiers non-suivis de votre répertoire de travail.
             </section>
 </section>
 <!-- ########################################################################################## -->
@@ -846,6 +865,18 @@
             Closes #392
             Breaks foo.bar api, foo.baz should be used instead
             ```
+            </section>
+        <section data-markdown>
+        ## Git add interactive
+        </section>
+            <section data-markdown>
+            ### 
+            </section>
+            <section data-markdown>
+            ### 
+            </section>
+            <section data-markdown>
+            ### 
             </section>
         <section data-markdown>
         ## Réécrire l'histoire
