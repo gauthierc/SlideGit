@@ -375,6 +375,9 @@
    # Travailler avec des dépôts distants
    </section>
 
+        <section data-markdown>
+        ## Manipulation des dépôts distants
+        </section>
             <section data-markdown>
             ### Afficher les dépôts distants
             ```
@@ -437,6 +440,33 @@
             ```
             </section>
     
+        <section data-markdown>
+        ## Stockage des identifiants
+        </section>
+            <section data-markdown>
+            ### SSH
+            * Création d'un bi-clé
+            * Dépôt de la clef publique sur le serveur
+            * Charger la clef en mémoire avec ssh-add
+            </section>
+            <section data-markdown>
+            ### Authentification HTTP
+            Plusieurs modes proposés:
+            * Par défaut, rien n’est mis en cache.
+            * Le mode « cache » conserve en mémoire les identifiants pendant 15 minutes par défaut.
+            ```
+            git config --global credential.helper "cache --timeout 900"
+            ```
+            * Le mode « store » sauvegarde les identifiants dans un fichier texte (en clair) sur le disque, et celui-ci n’expire jamais.
+            ```
+            git config --global credential.helper "store --file ~/.my-credentials"
+            ```
+            </section>
+            <section data-markdown>
+            ### Authentification HTTP
+            * Sous Mac, Git propose un mode « osxkeychain », qui met en cache les identifiants dans un trousseau sécurisé attaché à votre compte système.
+            * Sous Windows, vous pouvez installer une application appelée « Git Credential Manager for Windows » similaire à « osxkeychain ».
+            </section>
 </section>
 
 <section>
