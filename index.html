@@ -95,6 +95,17 @@
         </section>
 
             <section data-markdown>
+            ### Il était une fois
+            monfichier.txt  
+            monfichier.old  
+            monfichier.old2  
+            monfichier.old.du.lundi  
+            monfichier.old.du.lundi.avant  
+            monfichier.old.bak  
+            ...
+            </section>
+
+            <section data-markdown>
             ### Les systèmes de gestion de version locaux
             ![maxpic](images/local.png)
             </section>
@@ -124,15 +135,15 @@
         </section>
 
             <section data-markdown>
-            ### Des instantanés, pas des différences
-            Fonctionnement des VCS classiques (cvs, subversion, Perforce, Bazaar, ...)
+            ### Fonctionnement des VCS classiques (cvs, subversion, Perforce, Bazaar, ...)
             ![maxpic](images/deltas.png)
+            Ces systèmes sauvent l’information comme des modifications sur des fichiers.
             </section>
 
             <section data-markdown>
-            ### Des instantanés, pas des différences
-            Fonctionnement de Git
+            ### Fonctionnement de Git
             ![maxpic](images/snapshots.png)
+            Git stocke les données comme des instantanés du projet au cours du temps.
             </section>
 
             <section data-markdown>
@@ -145,6 +156,7 @@
             <section data-markdown>
             ### Git gère l’intégrité
             - Vérification de l'intégrité des fichiers fait partie intégrante de la philosophie de l'outil.
+            - Le mécanisme que Git utilise pour réaliser les sommes de contrôle est appelé une empreinte SHA-1.
             </section>
 
             <section data-markdown>
@@ -162,9 +174,11 @@
 
             <section data-markdown>
             ### Paramétrage à la première utilisation
-            - Fichier /etc/gitconfig : Tous les utilisateurs. *git config --system*
-            - Fichier ~/.gitconfig : Spécifique à votre utilisateur. *git config --global*
-            - Fichier config dans le répertoire Git (c’est-à-dire .git/config) : spécifique au seul dépôt en cours.
+            - Fichier /etc/gitconfig : Tous les utilisateurs.  
+              ```git config --system```
+            - Fichier ~/.gitconfig : Spécifique à votre utilisateur.  
+              ```git config --global```
+            - Fichier config dans le répertoire Git (c’est-à-dire *.git/config*) : spécifique au seul dépôt en cours.
             </section>
 
             <section data-markdown>
@@ -226,7 +240,7 @@
             ```
             $ git init
             ```
-            Cela crée un nouveau sous-répertoire nommé .git qui contient tous les fichiers nécessaires au dépôt.
+            Cela crée un nouveau sous-répertoire nommé *.git* qui contient tous les fichiers nécessaires au dépôt.
             ```
             $ git add *.c
             $ git add LICENSE
@@ -323,7 +337,7 @@
             ![maxpic](images/head-to-testing.png)
             </section>
             <section data-markdown>
-            ### Qu’est-ce que cela signifie ? 
+            ### Qu’est-ce que cela signifie ?
             Et bien, faisons une autre validation :
             ```
             $ vim README.md
@@ -406,6 +420,10 @@
             ```
             $ git fetch [remote-name]
             ```
+            ### Récupérer et tirer depuis des dépôts distants + fusion
+            ```
+            $ git pull [remote-name]
+            ```
             ### Pousser son travail sur un dépôt distant
             ```
             $ git push [nom-distant] [nom-de-branche]
@@ -470,7 +488,7 @@
 </section>
 
 <section>
-   <section data-markdown>
+   <section data-markdown id="tag">
    # Étiquetage
    </section>
     
