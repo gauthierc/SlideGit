@@ -304,7 +304,7 @@
 <!-- ########################################################################################## -->
 <section>
     <section data-markdown id="branches">
-    # Les Branches
+    # Branches et fusions
     </section>
 
         <section data-markdown id="benb">
@@ -377,9 +377,44 @@
             <section data-markdown>
             ### Exercice
             - Créez 3 fichiers textes (fich1, fich2, fich3)
+            - Ajoutez et commitez vos 3 fichiers
             - Créez une nouvelle branche appelée *dev*
             - Positionnez-vous sur la branche *dev*
-            - Modifiez fich1 et faites un commit
+            - Modifiez fich1 et commitez vos modifications
+            - Revenez sur la branche master
+            </section>
+        <section data-markdown id="benb">
+        ## Fusions de branches
+        </section>
+            <section data-markdown>
+            ### Merge Fast-forward
+            ![maxpic](images/basic-branching-4.png)
+            ```
+            $ git checkout master
+            $ git merge correctif
+            Updating f42c576..3a0874c
+            Fast-forward
+             index.html | 2 ++
+             1 file changed, 2 insertions(+)
+            ```
+            </section>
+            <section data-markdown>
+            ### Merge Fast-forward
+            ![maxpic](images/basic-branching-5.png)
+            </section>
+            <section data-markdown>
+            ### Exercice
+            - Créez une nouvelle branche appelée *bugFix*
+            - Positionnez-vous sur la branche *bugFix*
+            - Modifiez un fichier et faites un commit
+            - Retournez sur la branche master (commande *git checkout*)
+            - Modifiez un fichier et faites un nouveau commit
+            - Fusionnez la branche *bugFix* dans master avec *git merge*
+            </section>
+            <section data-markdown>
+            ### Visulation graphique de l'exercice
+
+            https://onlywei.github.io/explain-git-with-d3/#zen
             </section>
 </section>
 <!-- ########################################################################################## -->
@@ -593,15 +628,6 @@
             ![maxpic](images/basic-branching-5.png)
             </section>
             <section data-markdown>
-            ### Exercice
-            - Créez une nouvelle branche appelée *bugFix*
-            - Positionnez-vous sur la branche *bugFix*
-            - Modifiez un fichier et faites un commit
-            - Retournez sur la branche master (commande *git checkout*)
-            - Modifiez un fichier et faites un nouveau commit
-            - Fusionnez la branche *bugFix* dans master avec *git merge*
-            </section>
-            <section data-markdown>
             ### Git Rebase
             La seconde façon de combiner les contenus de deux branches est rebase. Rebase prend un ensemble de commits, les "recopie", et les ajoute en bout de chaîne à un autre endroit.
             </section>
@@ -728,6 +754,11 @@
             L’option -m 1 indique quel parent est le principal et devrait être conservé.
 
             ** Attention, une nouvelle fusion ne donnera rien, car la branche a déjà été fusionnée.**
+            </section>
+            <section data-markdown>
+            ### Visulation graphique de la manipulation
+
+            - https://onlywei.github.io/explain-git-with-d3/#zen
             </section>
 </section>
 
