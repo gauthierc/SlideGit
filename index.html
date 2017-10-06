@@ -76,8 +76,6 @@
             <div class="slides">
 <section id="debut" >
     <img src="images/Git-Logo-2Color.png" style="background:none; border:none; box-shadow:none;width:60%;" />
-    <!--<h1>Core<span style="color:#f35b69">O</span><span style="color:#6d9eeb">S</span></h1>-->
-    <h3>Maitriser Git pour un usage au quotidien</h3>
     <p><small><small>
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Présentation </span> de <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName"><a href="http://twitter.com/CattGr">@CattGr</a></span> est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">licence Creative Commons Attribution 4.0 International</a></small></small>
     </p>
@@ -182,22 +180,25 @@
 
             <section data-markdown>
             ### Paramétrage à la première utilisation
-            - Fichier /etc/gitconfig : Tous les utilisateurs.  
-              ```git config --system```
-            - Fichier ~/.gitconfig : Spécifique à votre utilisateur.  
-              ```git config --global```
-            - Fichier config dans le répertoire Git (c’est-à-dire *.git/config*) : spécifique au seul dépôt en cours.
+            - Fichier **/etc/gitconfig** : Tous les utilisateurs.
+              - *```git config --system```*
+            - Fichier **~/.gitconfig** : Spécifique à votre utilisateur.
+              - *```git config --global```*
+            - Fichier config dans le répertoire Git (c’est-à-dire **.git/config**) : spécifique au seul dépôt en cours.
+              - *```git config```*
             </section>
 
             <section data-markdown>
             ### Votre identité
-            - $ git config --global user.name "John Doe"
-            - $ git config --global user.email johndoe@example.com
+            - git config --global user.name "John Doe"
+            - git config --global user.email jd@mail.com
+
+            Pour changer d'identité pour un repo spécifique, se placer dans le repo et saisir la commande sans *```--global```*.
             </section>
 
             <section data-markdown>
             ### Votre éditeur de texte
-            - $ git config --global core.editor vim
+            - git config --global core.editor vim
             </section>
 
             <section data-markdown>
@@ -205,7 +206,7 @@
             ```
             $ git config --list
             user.name=John Doe
-            user.email=johndoe@example.com
+            user.email=jd@mail.com
             color.status=auto
             color.branch=auto
             color.interactive=auto
@@ -221,9 +222,9 @@
             <section data-markdown>
             ### Obtenir de l'aide
             Si vous avez besoin d’aide pour utiliser Git, il y a trois moyens d’obtenir les pages de manuel pour toutes les commandes de Git :
-            - $ git help *commande*
-            - $ git *commande* --help
-            - $ man git-*commande*
+            - git help *commande*
+            - git *commande* --help
+            - man git-*commande*
             </section>
             <section data-markdown>
             ### Exercice
@@ -391,7 +392,7 @@
             - Modifiez fich1 et commitez vos modifications
             - Revenez sur la branche master
             </section>
-        <section data-markdown id="benb">
+        <section data-markdown>
         ## Fusions de branches
         </section>
             <section data-markdown>
