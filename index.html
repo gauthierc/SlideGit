@@ -949,7 +949,7 @@
     
             <section data-markdown>
             ### git commit --amend
-            Remplace le commit précédent.
+            Remplace le commit précédent. Utile si vous avez oublié un fichier, ou vue une faute de frappe dans votre message.
             ```
             $ git commit -m 'validation initiale'
             $ git add fichier_oublie
@@ -1000,19 +1000,39 @@
             ```
             Vous pouvez constater que les modifications ont été annulées. (Danger!)
             </section>
-</section>
-
-<!-- ########################################################################################## -->
-<!-- ########################################################################################## -->
-<section>
-    <section data-markdown id="workflowgit">
-    # Git rebase interactif
+    <section data-markdown>
+    ## Git rebase interactif
     </section>
-
+            <section data-markdown>
+                ### git rebase --interactif
+                Permet de réécrire l'histoire, de permuter les commits, de les supprimer, de les fusionner, modifier le message du commit.
+                #### Exemple
+                ```
+                git rebase -i HEAD~5
+                ```
+                permet de rééditer les 5 derniers commits.
+            </section>
+            <section data-markdown>
+                ### Commandes:
+                ```
+                p, pick = utilise le commit sans y toucher
+                r, reword = édite du message sans changer le commit
+                e, edit = permet d'editer les fichiers, de modifier le commit
+                s, squash = utiliser le commit, en fusionnant le commit précédent
+                f, fixup = comme "squash", mais rejette le message de ce commit
+                x, exec = exécute la commande (le reste de la ligne) en utilisant le shell
+                d, drop = supprime le commit
+                ```
+                - Les lignes de commit peuvent être ré-ordonnées; elles sont exécutées de haut en bas.
+                - Si vous supprimez une ligne ***le commit sera perdu***.
+                - Si vous supprimez tout les lignes, le rebase sera annulé.
+            </section>
             <section data-markdown>
             ### Exercice
-            - Effectuez 4 modifications dans vos fichiers avec 4 commits différents.
-            - Utilisez la commande *git rebase* pour n'avoir qu'un seul commit pour ces 4 modifications.
+            - Effectuez 5 modifications dans vos fichiers avec 5 commits différents.
+            - Utilisez la commande *git rebase -i* pour fusionner les 2 premiers commit.
+            - Réécire le message du 3eme commit.
+            - Supprimer le 4eme commit.
             </section>
 </section>
 <!-- ########################################################################################## -->
