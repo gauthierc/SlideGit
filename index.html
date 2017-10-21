@@ -1042,24 +1042,78 @@
     # Principaux Workflow Git
     </section>
         <section data-markdown>
-        ## Centralized
+        ## Workflow Centralisé
         ![maxpic](images/WorkflowCentralized.svg)
         </section>
             <section data-markdown>
-            ### ...
+            ### Présentation
+            - Référentiel central.
+            - Migration depuis un VCS centralisé sans changer les habitudes.
+            - Chaque utilisateur dispose d'une copie complète du dépot.
+            </section>
+            <section data-markdown>
+                ### Mise en œuvre
+                1. Création d'un dépot central.
+                2. Clone du dépot par les développeurs.
+                3. Les développeurs poussent leurs modifications vers la branche master du dépot.
+                4. Si le dépot local n'est pas à jour ```git pull --rebase origin master``` pour rebaser leur travail et fusionner le travail des autres.
+            </section>
+            <section data-markdown>
+                ### Avantages
+                - Workflow simple
+                - Idéale pour une transition depuis un VCS centralisé vers un workflow plus complet.
+                - Résolution des conflits au fil de l'eau
+                - Historique propre et linéaire.
             </section>
         <section data-markdown>
         ## Feature Branch
         ![maxpic](images/WorkflowFeature.svg)
+        Branche par fonctionnalité
         </section>
+            <section data-markdown>
+                ### Présentation
+                - Évolution du workflow cenralisé
+                - Tout développement de fonctionnalités doit avoir lieu dans une branche dédiée au lieu de la branche principale.
+                - La branche est fusionnée dans master lorsque le développement de la fonctionnalité est terminé.
+            </section>
+            <section data-markdown>
+                ### Mise en œuvre
+                1. Création d'un dépot central.
+                2. Les développeurs créent une nouvelle branche à chaque fois qu'ils commencent à travailler sur une nouvelle fonctionnalité.
+                3. Une fois la fonctionnalité terminée, ils poussent la branche vers le serveur central et déposent une requête demandant de fusionner leurs ajouts dans master.
+            </section>
+            <section data-markdown>
+                ### Avantages
+                - La branche master reste propre et fonctionnelle.
+                - Adapté au **Pull/merge request** des outils web de gestion de dépots Git.
+                - Facilite l'examen du code avant fusion dans master par d'autres développeurs.
+            </section>
         <section data-markdown>
         ## Gitflow
         ![maxpic](images/WorkflowGitflow.svg)
         </section>
+            <section data-markdown>
+                ### Présentation
+            </section>
+            <section data-markdown>
+                ### Mise en œuvre
+            </section>
+            <section data-markdown>
+                ### Avantages
+            </section>
         <section data-markdown>
         ## Git Forking
         ![maxpic](images/WorkflowForking.svg)
         </section>
+            <section data-markdown>
+                ### Présentation
+            </section>
+            <section data-markdown>
+                ### Mise en œuvre
+            </section>
+            <section data-markdown>
+                ### Avantages
+            </section>
 </section>
 
 <!-- ########################################################################################## -->
