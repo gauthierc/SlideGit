@@ -1042,6 +1042,12 @@
     # Principaux Workflow Git
     </section>
         <section data-markdown>
+        ## Préambule
+        les workflows présentés ici ne sont que des exemples de ce qui est possible. Ce ne sont pas des règles strictes pour utiliser Git.
+
+        Adaptez l'outil à votre façon de travailler, pas l'inverse.
+        </section>
+        <section data-markdown>
         ## Workflow Centralisé
         ![maxpic](images/WorkflowCentralized.svg)
         </section>
@@ -1072,7 +1078,7 @@
         </section>
             <section data-markdown>
                 ### Présentation
-                - Évolution du workflow cenralisé
+                - Évolution du workflow centralisé
                 - Tout développement de fonctionnalités doit avoir lieu dans une branche dédiée au lieu de la branche principale.
                 - La branche est fusionnée dans master lorsque le développement de la fonctionnalité est terminé.
             </section>
@@ -1081,25 +1087,55 @@
                 1. Création d'un dépot central.
                 2. Les développeurs créent une nouvelle branche à chaque fois qu'ils commencent à travailler sur une nouvelle fonctionnalité.
                 3. Une fois la fonctionnalité terminée, ils poussent la branche vers le serveur central et déposent une requête demandant de fusionner leurs ajouts dans master.
+                4. La fusion peut être faites par le responsable du projet ou par le développeur.
             </section>
             <section data-markdown>
                 ### Avantages
                 - La branche master reste propre et fonctionnelle.
                 - Adapté au **Pull/merge request** des outils web de gestion de dépots Git.
                 - Facilite l'examen du code avant fusion dans master par d'autres développeurs.
+
+                ### Attention !
+                - Rebaser régulièrement son travail pour ne pas trop diverger de master.
             </section>
         <section data-markdown>
         ## Gitflow
         ![maxpic](images/WorkflowGitflow.svg)
+
+        [Origine](http://nvie.com/posts/a-successful-git-branching-model/)
         </section>
             <section data-markdown>
                 ### Présentation
+                - Évolution du workflow *Feature Branch*
+                - Création de branches ayant des rôles spécifiques (Develop, Release, Feature, Hotfix).
+                - Définitions des interactions entre les branches.
+                - Seules les branches Hotfix et concernant une Release ont le droit d'être fusionnées dans master.
             </section>
             <section data-markdown>
                 ### Mise en œuvre
+                #### Branches principales
+                - Ce workflow utilise 2 branches pour enregistrer l'historique du projet (*master* et *Develop*).
+
+                #### Branches de fonctionnalités
+                - Chaque nouvelle fonctionnalité doit résider dans sa propre branche, qui peut être transférée sur le référentiel central.
+                - Ces branches doivent utiliser *Develop* comme branche parent.
+            </section>
+            <section data-markdown>
+                #### Branches de Release
+                - Lorsque le code présent dans la branche *Develop* commence à être prêt, nous créeons une branche correspondant à la release que nous désirons sortir.
+                - Une fois la release prête, nous la fusionnons dans *master*.
+                - L'utilisation d'une branche dédiée pour préparer les versions permet à une équipe de peaufiner la version actuelle alors qu'une autre équipe continue à travailler sur les fonctionnalités de la prochaine version.
+            </section>
+            <section data-markdown>
+                #### Branche Hotfix
+                - Les branches de maintenance ou «correctif» sont utilisées pour corriger rapidement les versions de production.
+                - Dès que le correctif est terminé, il doit être fusionné dans *master* et *develop* (ou la branche de *release* actuelle), et *master* doit être étiqueté avec un nouveau numéro de version.
             </section>
             <section data-markdown>
                 ### Avantages
+                - Permet une collaboration efficace dans des gros projets.
+                - Extension Git pour faciliter le travail.
+                - [Documentation](http://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html) en français.
             </section>
         <section data-markdown>
         ## Git Forking
